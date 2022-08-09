@@ -10,9 +10,25 @@ Spring boot application
 http://localhost:8080/h2-console
 
 ### Exercising Rest Controller
-* **POST**	 /order			    Create new order		 http://localhost:8080/order
-* **POST**	 /customer			Create new customer		 http://localhost:8080/customer
-* **DELETE** /order/id    	    Delete the order	     http://localhost:8080/order/3
+Orders:
+* **POST**	 /order			    
+  * Create new order
+* **DELETE** /order/{id}    
+  * Delete the order
+* **GET**	 /order			    
+  * See all orders
+* **PATCH**  /order/{orderId}/customer/{customerId} 
+  * Update order for customer using customer id
+* **PATCH**  /order/{orderId}
+  * Update order for customer using customer JSON body
+
+Customers:
+* **POST**	 /customer			
+  * Create new customer		 
+* **GET**	 /customer/{id}
+  * See single customer		 
+* **GET**	 /customer			
+  * See all customers		 
 
 ### Samples
 * **POST** : http://localhost:8080/order/
@@ -24,8 +40,8 @@ http://localhost:8080/h2-console
   "activeFrom": "2016-08-13",
   "activeTo": "2016-10-13",
   "customer": {
-                "id" : 1
-              }
+    "id" : 1
+  }
 }
 ```
 * **DELETE** : http://localhost:8080/order/3
