@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Getter
@@ -32,7 +33,8 @@ public class Customer
 
     private int companyCode;
 
-    private int personalCode;
+    @Size(min = 11, max = 11, message = "Personal code must be of 11 digits")
+    private String personalCode;
 
     private String address;
 
